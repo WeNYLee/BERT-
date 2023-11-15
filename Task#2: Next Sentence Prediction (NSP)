@@ -1,1 +1,6 @@
+多くの下流の NLP タスクでは、例えば QA、NLI など、2 つの文の関係に基づいて意味理解を行います。しかし、このような情報言語モデルでは、
+2つの文の関係を効果的に抽出することはできません。そのため、著者らは次の文予測 (NSP) というモデルの訓練を提案しました。
 
+2つの文 A と B を 1 つの訓練データとして、50% の訓練データは語料から連続した 2 つの文から得て、ラベルを IsNext とし、残りの 50% はランダムに 2 つの不連続な文を与え、ラベルを NotNext とします。
+入力：[CLS] the man went to [MASK] store [SEP] he bought a gallon [MASK] milk [SEP] → ラベル = IsNext
+入力：[CLS] the man [MASK] to the store [SEP] penguin [MASK] are flight ##less birds [SEP] → ラベル = NotNext
