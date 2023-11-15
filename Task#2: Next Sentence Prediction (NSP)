@@ -2,5 +2,8 @@
 2つの文の関係を効果的に抽出することはできません。そのため、著者らは次の文予測 (NSP) というモデルの訓練を提案しました。
 
 2つの文 A と B を 1 つの訓練データとして、50% の訓練データは語料から連続した 2 つの文から得て、ラベルを IsNext とし、残りの 50% はランダムに 2 つの不連続な文を与え、ラベルを NotNext とします。
-入力：[CLS] the man went to [MASK] store [SEP] he bought a gallon [MASK] milk [SEP] → ラベル = IsNext
+入力：[CLS] The man went to [MASK] store [SEP] he bought a gallon [MASK] milk [SEP] → ラベル = IsNext
 入力：[CLS] the man [MASK] to the store [SEP] penguin [MASK] are flight ##less birds [SEP] → ラベル = NotNext
+
+具体的な実装は、入力シーケンス全体を Transformer モデルに入力し、モデルの最後で生成された [CLS] トークンを、
+2×1 のベクトルを出力する行列変換を行う分類層に入力します。そして、Softmax 関数を使用して IsNext シーケンスの確率を取得します。
