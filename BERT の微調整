@@ -1,1 +1,4 @@
+タスクの入力と出力をモデルに入力するだけで、モデルは end-to-end でモデルのアーキテクチャのパラメータを微調整します。
 
+出力の結果では、[CLS] トークンは分類タスク（例えば、entailment や sentiment analysis）のために出力層に入力されます。
+また、他のトークン表現も、トークンレベルのタスク（例えば、sequence tagging や question answering）のために出力層に入力されます。
