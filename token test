@@ -1,6 +1,7 @@
 text = "[CLS] this[MASK]the text of token "
 tokens = tokenizer.tokenize(text)
 ids = tokenizer.convert_tokens_to_ids(tokens)
+
 print(text)
 print(tokens[:10], '...')
 print(ids[:10], '...')
